@@ -1,0 +1,60 @@
+
+<html>
+  <head>
+    <script src="scripts/qrious.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <FireBoxRoom>
+      <Assets>
+        <AssetScript src="scripts/janus-ui.js" />
+        <AssetScript src="scripts/wildride.js" />
+        <AssetScript src="scripts/path.js" />
+        <AssetScript src="scripts/changemachine.js" />
+        <AssetScript src="scripts/paymentprocessor.js" />
+        <AssetScript src="scripts/teleporter.js" />
+        <AssetScript src="scripts/teleporthelper.js" />
+        <AssetObject id="mountains" src="assets/mountains.dae.gz" />
+        <AssetObject id="vegas" src="assets/strip.dae" />
+        <AssetObject id="trees-combined" src="assets/trees-combined.obj" />
+        <AssetObject id="streetlights-combined" src="assets/streetlights-combined.obj" />
+        <AssetObject id="signs-combined" src="assets/signs-combined.obj" />
+        <AssetObject id="car" src="assets/cadillac1-simplified.obj" />
+        <AssetObject id="change-machine-high" src="assets/change-machine.dae.gz"/>
+        <AssetSound id="vivalasvegas" src="sfx/vivalasvegas.ogg" />
+
+        <AssetImage id="sky_down" src="sky/Eveningbottom.jpg" tex_clamp="true" />
+        <AssetImage id="sky_right" src="sky/Eveningright.jpg" tex_clamp="true" />
+        <AssetImage id="sky_front" src="sky/Eveningfront.jpg" tex_clamp="true" />
+        <AssetImage id="sky_back" src="sky/Eveningback.jpg" tex_clamp="true" />
+        <AssetImage id="sky_up" src="sky/Eveningtop.jpg" tex_clamp="true" />
+        <AssetImage id="sky_left" src="sky/Eveningleft.jpg" tex_clamp="true" />
+
+      </Assets>
+      <Room near_dist=".1" far_dist="4000" pbr="true" shadows="false" cursor_visible="false" skybox_back_id="sky_back" skybox_down_id="sky_down" skybox_front_id="sky_front" skybox_left_id="sky_left" skybox_right_id="sky_right" skybox_up_id="sky_up" use_local_asset="room_plane" visible="false">
+        <TeleportHelper />
+        <pushbutton onactivate="begin()" pos="-1 .85 1" col="green"/>
+        <paymentprocessor onpaymentconfirm="begin()" confirmations="0" pos="0 .3 1.25" xdir="-1 0 0" zdir="0 0 -1" amount=".00006" title="Take Me For a Ride" description="Take a ride through the historic Las Vegas strip!  See the drunks, the whores, the degenerate gamblers, the hapless tourists racing to throw their money away as fast as possible - and gawk in awe at the sheer wastefulness of it all!" />
+        <object id="mountains" xcollision_id="mountains" scale="4 4 4" col="tan" pos="0 -15 1200" />
+        <object id="vegas" xcollision_id="vegas" scale="250 250 250" pos="1330 -95 2390" xdir="0 0 -1" zdir="1 0 0" shadow="true" cull_face="none" />
+        <object id="trees-combined" xcollision_id="trees-combined" pos="0 0 0" shadow="true" />
+        <object id="streetlights-combined" xcollision_id="streetlights-combined" pos="0 0 0" shadow="true" />
+        <object id="signs-combined" xcollision_id="signs-combined" pos="0 0 0" shadow="true" />
+        <object id="car" js_id="car" xcollision_id="" scale=".5 .5 .5" pos="-4.9 0 0" xdir="1 0 0" zdir="0 0 1" shadow="true" />
+        <sound id="vivalasvegas" js_id="vivalasvegas" rect="-1000 -1000 1000 1000" />
+        <xobject id="car" js_id="car" xcollision_id="car" scale="1 1 1" pos="261 -20 319"/>
+    <!-- light js_id="mylight" light_intensity="5" light_shadow="true" light_range="50" pos="20 40 0" light_directional="true" / -->
+
+        <path js_id="camerapath">
+          <waypoint pos="-4.9 0 0" js_id="startpos" />
+          <waypoint pos="-8.5 0 780" />
+          <waypoint pos="-95 0 2075" />
+        </path>
+        <teleporter pos="-98 1 2082" target="startpos" />
+      </Room>
+    </FireBoxRoom>
+
+    <script src="https://web.janusvr.com/janusweb.js"></script>
+    <script>elation.janusweb.init()</script>
+  </body>
+</html>
+
