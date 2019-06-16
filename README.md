@@ -1,5 +1,7 @@
 # wild-ride
 
+Demo link: <dat://be0958b5c744e7d34eb8c3a8f533d7c7c1f3d6727187bc9f830560dba857704b/>
+
 Uses the changemachine component for initiating a ride through Vegas when Bitcoin is received
 
 ![Payment prompt](https://i.imgur.com/7h4Ofre.jpg)
